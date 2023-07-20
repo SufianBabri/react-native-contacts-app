@@ -1,21 +1,31 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "../screens/HomeScreen";
-import { DefaultTheme, DarkTheme } from "@react-navigation/native";
 import { useColorScheme } from "react-native";
 import { routes } from "./routes";
+import ContactDetailsScreen from "../screens/ContactDetailsScreen";
+import ContactsScreen from "../screens/ContactsScreen";
+import { AppStackParamList } from "../types";
 
-const Stack = createNativeStackNavigator();
+const AppStack = createNativeStackNavigator<AppStackParamList>();
 
 export default function AppNavigator() {
 	const scheme = useColorScheme();
 
 	return (
 		<NavigationContainer theme={scheme === "dark" ? DarkTheme : DefaultTheme}>
-			<Stack.Navigator>
-				<Stack.Screen name={routes.HOME} component={HomeScreen} />
-			</Stack.Navigator>
+			<AppStack.Navigator>
+				<AppStack.Screen
+					name={routes.CONTACTS}
+					options={{ title: "Contacts" }}
+					component={ContactsScreen}
+				/>
+				<AppStack.Screen
+					name={routes.CONTACT_DETAILS}
+					options={({ route }) => ({ title: route.params.name })}
+					component={ContactDetailsScreen}
+				/>
+			</AppStack.Navigator>
 		</NavigationContainer>
 	);
 }

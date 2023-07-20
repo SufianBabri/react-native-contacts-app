@@ -1,3 +1,4 @@
 export const routes = Object.freeze({
-	HOME: "Home"
+	CONTACTS: "Contacts",
+	CONTACT_DETAILS: "ContactDetails"
 });
