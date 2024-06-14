@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { AppStackScreenProps } from "../types";
 import { fetchContact } from "../utils/contacts-util";
 import { FlatList, Image, StyleSheet, View } from "react-native";
 import ContactProperty from "../components/contact/ContactProperty";
 import { Contact } from "expo-contacts";
 import ThemedActivityIndicator from "../components/themed/ThemedActivityIndicator";
 import EmptyContactImage from "../components/EmptyContactImage";
+import { AppStackScreenProps } from "../../types";
 
 export default function ContactDetailsScreen({
 	route,
