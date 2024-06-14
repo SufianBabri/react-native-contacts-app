@@ -16,8 +16,8 @@ import { StatusBar } from "expo-status-bar";
 import ContactsPermissionDenied from "../components/ContactsPermissionDenied";
 import { useAppForeground } from "../hooks/useAppForeground";
 import { routes } from "../navigation/routes";
-import { AppStackScreenProps } from "../types";
 import ThemedActivityIndicator from "../components/themed/ThemedActivityIndicator";
+import { AppStackScreenProps } from "../../types";
 
 export default function ContactsScreen({ navigation }: AppStackScreenProps<"Contacts">) {
 	const [contacts, setContacts] = useState<ContactsState>("loading");

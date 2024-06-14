@@ -5,7 +5,7 @@ import { useColorScheme } from "react-native";
 import { routes } from "./routes";
 import ContactDetailsScreen from "../screens/ContactDetailsScreen";
 import ContactsScreen from "../screens/ContactsScreen";
-import { AppStackParamList } from "../types";
+import { AppStackParamList } from "../../types";
 
 const AppStack = createNativeStackNavigator<AppStackParamList>();
 

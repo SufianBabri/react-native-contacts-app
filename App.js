@@ -1,5 +1,5 @@
 import * as SystemUI from "expo-system-ui";
-import AppNavigator from "../navigation/AppNavigator";
+import AppNavigator from "./src/navigation/AppNavigator";
 
 SystemUI.setBackgroundColorAsync("transparent");
 
