@@ -1,7 +1,6 @@
 import * as Contacts from "expo-contacts";
-import { Contact, Fields } from "expo-contacts";
+import { Fields } from "expo-contacts";
 import { Alert, Linking } from "react-native";
-import { PhoneNumber } from "expo-contacts/src/Contacts";
 
 export async function hasAccessToContacts() {
 	const { granted } = await Contacts.getPermissionsAsync();
@@ -15,7 +14,7 @@ export async function isContactsPermissionDenied() {
 
 export async function fetchContacts() {
 	const { data } = await Contacts.getContactsAsync({
-		fields: [Fields.ID, Fields.Name, Fields.Image]
+		fields: [Fields.ID, Fields.Name, Fields.Image],
 	});
 	return data;
 }
@@ -30,7 +29,7 @@ export async function fetchContact(id: string) {
 		Fields.ID,
 		Fields.Name,
 		Fields.PhoneNumbers,
-		Fields.Image
+		Fields.Image,
 	]);
 }
 
@@ -39,9 +38,12 @@ export async function showAlertForOpeningSettings() {
 		"Permission Required",
 		"Settings screen will be opened, please allow contacts permission",
 		[
-			{ text: "Open settings", onPress: async () => await Linking.openSettings() },
-			{ text: "Dismiss", style: "cancel" }
+			{
+				text: "Open settings",
+				onPress: async () => await Linking.openSettings(),
+			},
+			{ text: "Dismiss", style: "cancel" },
 		],
-		{ cancelable: true }
+		{ cancelable: true },
 	);
 }
